@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 21:41:26 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/07 14:05:50 by junyekim         ###   ########.fr       */
+/*   Created: 2023/10/07 14:38:26 by junyekim          #+#    #+#             */
+/*   Updated: 2023/10/07 14:40:59 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char *s, int c)
+int	ft_memcmp(const void *s1, const void *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	index;
+	int				cmp1;
+	int				cmp2;
+	char			*cs1;
+	char			*cs2;
 
-	i = ft_strlen(s) - 1;
-	while (i >= 0)
+	index = 0;
+	cs1 = (char *)s1;
+	cs2 = (char *)s2;
+	while (index < n)
 	{
-		if (s[i] == c)
-			return (s + i);
-		i++;
+		if (cs1[index] != cs2[index])
+		{
+			cmp1 = (unsigned char)cs1[index];
+			cmp2 = (unsigned char)cs2[index];
+			return (cmp1 - cmp2);
+		}
+		index++;
 	}
-	return ((char *)0);
+	return (0);
 }

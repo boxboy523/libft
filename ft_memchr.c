@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 21:41:26 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/07 14:05:50 by junyekim         ###   ########.fr       */
+/*   Created: 2023/10/07 14:31:28 by junyekim          #+#    #+#             */
+/*   Updated: 2023/10/07 14:37:11 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, int n)
 {
 	int	i;
 
-	i = ft_strlen(s) - 1;
-	while (i >= 0)
+	while (i < n)
 	{
-		if (s[i] == c)
+		if (((char *)s)[i] == c)
+		{
 			return (s + i);
-		i++;
+		}
 	}
-	return ((char *)0);
+	return ((void *)0);
 }

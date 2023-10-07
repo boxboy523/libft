@@ -6,11 +6,11 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:29:03 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 21:31:30 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:23:29 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);

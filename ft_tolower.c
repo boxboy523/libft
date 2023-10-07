@@ -6,11 +6,11 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:32:27 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 21:33:04 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:23:15 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);

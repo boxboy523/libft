@@ -6,11 +6,11 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:41:36 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 20:57:18 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:50:39 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memmove(void *dst, const void *src, int len)
+void	*ft_memmove(void *dst, const void *src, int len)
 {
 	int	i;
 
@@ -32,4 +32,5 @@ void	*memmove(void *dst, const void *src, int len)
 			i--;
 		}
 	}
+	return (dst);
 }

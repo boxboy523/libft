@@ -6,11 +6,11 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:34:08 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 21:40:26 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/07 21:53:21 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -18,7 +18,7 @@ char	*strchr(const char *s, int c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-			return (s + i);
+			return ((char *)s + i);
 		i++;
 	}
 	return ((char *)0);

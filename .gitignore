@@ -1,2 +1,7 @@
 .DS_Store
 test.c
+*.o
+*.out
+*.a
+.vscode
+*.dSYM

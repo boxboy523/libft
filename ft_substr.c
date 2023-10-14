@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 20:59:28 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/09 14:58:22 by junyekim         ###   ########.fr       */
+/*   Created: 2023/10/09 13:40:26 by junyekim          #+#    #+#             */
+/*   Updated: 2023/10/14 22:25:17 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	src_size;
+	size_t			substr_size;
+	char			*substr;
+	unsigned int	i;
 
+	if (len + start > ft_strlen(s))
+		substr_size = ft_strlen(s) - start;
+	else
+		substr_size = len;
+	if (start >= ft_strlen(s))
+		substr_size = 0;
+	substr = ft_calloc(substr_size + 1, sizeof(char));
+	if (!substr)
+		return (NULL);
 	i = 0;
-	src_size = ft_strlen(src);
-	if (!dst || !src)
-		return (0);
-	while (src[i] != '\0' && i + 1 < dstsize)
+	while (i < substr_size)
 	{
-		dst[i] = src[i];
+		substr[i] = s[start + i];
 		i++;
 	}
-	if (dstsize > 0)
-		dst[i] = '\0';
-	return (src_size);
+	substr[i] = '\0';
+	return (substr);
 }

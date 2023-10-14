@@ -6,16 +6,18 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:27:03 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 20:29:23 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:13:26 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, int n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
 	while (n > 0)
 	{
 		*(unsigned char *)s = 0;
-		s++;
+		s = (char *)s + 1;
 		n--;
 	}
 }

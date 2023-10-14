@@ -6,11 +6,11 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:03:11 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 20:05:35 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:49:44 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(char c)
+int	ft_isalnum(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

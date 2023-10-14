@@ -6,21 +6,25 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:41:36 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/07 21:50:39 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:01:13 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, int len)
-{
-	int	i;
+#include "libft.h"
 
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t	i;
+
+	if (!len || (!dst && !src))
+		return (dst);
 	if (src <= dst)
 	{
-		i = len - 1;
-		while (i >= 0)
+		i = 0;
+		while (i < len)
 		{
-			((char *)dst)[i] = ((char *)src)[i];
-			i--;
+			((char *)dst)[len - i - 1] = ((char *)src)[len - i - 1];
+			i++;
 		}
 	}
 	else
@@ -29,7 +33,7 @@ void	*ft_memmove(void *dst, const void *src, int len)
 		while (i < len)
 		{
 			((char *)dst)[i] = ((char *)src)[i];
-			i--;
+			i++;
 		}
 	}
 	return (dst);

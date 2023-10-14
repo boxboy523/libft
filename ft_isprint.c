@@ -6,11 +6,11 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:10:58 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 20:11:36 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:52:30 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
 	return (32 <= c && c <= 126);
 }

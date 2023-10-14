@@ -6,11 +6,11 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:06:31 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 20:06:50 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/11 19:48:18 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (1);

@@ -6,13 +6,15 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 20:41:23 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/07 20:58:46 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:41:09 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(unsigned char c);
+#include "libft.h"
 
-int	ft_atoi(char *str)
+static int	ft_isspace(unsigned char c);
+
+int	ft_atoi(const char *str)
 {
 	long long	num;
 	int			index;
@@ -24,7 +26,7 @@ int	ft_atoi(char *str)
 	while (ft_isspace(str[index]))
 		index++;
 	if (str[index] == '+' || str[index] == '-')
-		sign *= str[index++] == '+' * 2 - 1;
+		sign *= (str[index++] == '+') * 2 - 1;
 	while (str[index] >= '0' && str[index] <= '9')
 	{
 		num *= 10;
@@ -34,7 +36,7 @@ int	ft_atoi(char *str)
 	return ((int)(num * sign));
 }
 
-int	ft_isspace(unsigned char c)
+static int	ft_isspace(unsigned char c)
 {
 	if (c == ' ')
 		return (1);

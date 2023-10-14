@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 14:07:18 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/09 14:59:12 by junyekim         ###   ########.fr       */
+/*   Created: 2023/10/14 20:33:13 by junyekim          #+#    #+#             */
+/*   Updated: 2023/10/14 20:42:33 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	index;
-	int		cmp1;
-	int		cmp2;
+	const size_t	len = ft_strlen(s);
+	char			*rtn;
+	unsigned int	i;
 
-	index = 0;
-	while ((s1[index] != '\0' || s2[index] != '\0') && index < n)
+	rtn = ft_calloc(len + 1, sizeof(char));
+	if (!rtn)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		if (s1[index] != s2[index])
-		{
-			cmp1 = (unsigned char)s1[index];
-			cmp2 = (unsigned char)s2[index];
-			return (cmp1 - cmp2);
-		}
-		index++;
+		rtn[i] = f(i, s[i]);
+		i++;
 	}
-	return (0);
+	rtn[i] = '\0';
+	return (rtn);
 }

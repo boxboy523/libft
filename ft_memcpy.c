@@ -6,13 +6,15 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:34:53 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/06 20:41:17 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:45:21 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, int n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	if (dst == src)
 		return ((void *) 0);

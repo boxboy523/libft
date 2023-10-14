@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 14:07:18 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/09 14:59:12 by junyekim         ###   ########.fr       */
+/*   Created: 2023/10/14 21:14:10 by junyekim          #+#    #+#             */
+/*   Updated: 2023/10/14 21:19:06 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	index;
-	int		cmp1;
-	int		cmp2;
+	char	digit;
 
-	index = 0;
-	while ((s1[index] != '\0' || s2[index] != '\0') && index < n)
+	if (n == -2147483648)
 	{
-		if (s1[index] != s2[index])
-		{
-			cmp1 = (unsigned char)s1[index];
-			cmp2 = (unsigned char)s2[index];
-			return (cmp1 - cmp2);
-		}
-		index++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (0);
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	digit = n % 10 + '0';
+	if (n / 10 != 0)
+		ft_putnbr_fd(n / 10, fd);
+	write(fd, &digit, 1);
 }

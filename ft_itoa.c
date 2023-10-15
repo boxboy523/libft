@@ -6,46 +6,41 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 19:53:29 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/14 21:37:23 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:09:15 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_putnbr(unsigned int nb, unsigned int index, char *str)
+int	get_digit(unsigned int nb)
 {
-	char	digit;
-
-	digit = nb % 10 + '0';
-	if (nb / 10 != 0)
-		ft_putnbr(nb / 10, index + 1, str);
-	str[index] = digit;
+	if (nb / 10 == 0)
+		return (1);
+	else
+		return (get_digit(nb / 10) + 1);
 }
 
 char	*ft_itoa(int n)
 {
-	unsigned int	num;
-	char			*buf;
-	char			*ans;
-	unsigned int	i;
-	size_t			len;
+	unsigned int		num;
+	char				*ans;
+	unsigned int		i;
+	size_t				len;
+	const unsigned int	sign = n < 0;
 
-	buf = ft_calloc(12, sizeof(char));
-	if (!buf)
-		return (NULL);
-	num = n * ((n < 0) * -2 + 1);
-	ft_putnbr(num, 0, buf);
-	buf[ft_strlen(buf)] = '-' * (n < 0);
-	len = ft_strlen(buf);
+	num = n * ((sign) * -2 + 1);
+	len = get_digit(num) + sign;
 	ans = ft_calloc(len + 1, sizeof(char));
 	if (!ans)
 		return (NULL);
-	i = 0;
-	while (i < len)
+	i = len;
+	while (i > sign)
 	{
-		ans[i] = buf[len - i - 1];
-		i++;
+		ans[i - 1] = '0' + num % 10;
+		num /= 10;
+		i--;
 	}
-	free(buf);
+	if (sign)
+		ans[i - 1] = '-';
 	return (ans);
 }

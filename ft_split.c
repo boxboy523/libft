@@ -6,7 +6,7 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:39:33 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/14 22:24:10 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/14 22:41:06 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,25 @@ static size_t	get_set_len(const char *str, char c, size_t str_len)
 static char	**check_ans(char **ans, size_t size)
 {
 	unsigned int	i;
-	int				welldone;
 
 	if (!ans)
 		return (NULL);
 	i = 0;
-	welldone = 1;
 	while (i < size)
 	{
 		if (!ans[i])
-			welldone = 0;
-		i++;
-	}
-	if (!welldone)
-	{
-		i = 0;
-		while (i < size)
 		{
-			if (ans[i])
-				free(ans[i]);
-			i++;
+			i = 0;
+			while (i < size)
+			{
+				if (ans[i])
+					free(ans[i]);
+				i++;
+			}
+			free(ans);
+			return (NULL);
 		}
-		return (NULL);
+		i++;
 	}
 	return (ans);
 }
@@ -78,7 +75,6 @@ static char	**find_set(const char *str, char c, size_t size)
 			ans[ans_idx++] = ft_substr(str, start, iter - start + 1);
 		iter++;
 	}
-	ans[ans_idx] = NULL;
 	return (check_ans(ans, set_len));
 }
 

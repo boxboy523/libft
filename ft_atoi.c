@@ -6,7 +6,7 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 20:41:23 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/15 16:51:52 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/15 20:13:59 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,10 @@ int	ft_atoi(const char *str)
 		num += str[index] - '0';
 		index++;
 	}
-	return ((int)(num * sign));
+	num *= sign;
+	if (num > 2147483647)
+		return (2147483647);
+	if (num < -2147483648)
+		return (-2147483648);
+	return ((int)num);
 }

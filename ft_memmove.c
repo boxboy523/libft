@@ -6,7 +6,7 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:41:36 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/11 20:01:13 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/15 20:10:35 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
-	if (!len || (!dst && !src))
+	if (!len || (dst == src))
 		return (dst);
 	if (src <= dst)
 	{

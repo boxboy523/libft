@@ -6,7 +6,7 @@
 /*   By: junyekim <junyekim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:39:33 by junyekim          #+#    #+#             */
-/*   Updated: 2023/10/14 22:41:06 by junyekim         ###   ########.fr       */
+/*   Updated: 2023/10/15 19:51:55 by junyekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,8 @@ static char	**find_set(const char *str, char c, size_t size)
 char	**ft_split(const char *s, char c)
 {
 	char			**ans;
-	size_t			index;
 	const size_t	str_len = ft_strlen(s);
 
-	index = 0;
 	ans = find_set(s, c, str_len);
 	return (ans);
 }

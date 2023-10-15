@@ -24,7 +24,6 @@ else
 	OBJS_PATH := $(patsubst %.o, $(SRC_DIR)/%.o, $(OBJS))
 endif
 all: $(NAME)
-	sleep 1
 $(NAME) : $(OBJS_PATH)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS_PATH)
 $(OBJS_PATH): %.o: %.c libft.h

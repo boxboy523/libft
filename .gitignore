@@ -5,3 +5,4 @@ test.c
 *.a
 .vscode
 *.dSYM
+test
